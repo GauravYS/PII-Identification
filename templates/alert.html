@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Alert</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <style>
+      .container {
+        background-color: lightblue;
+        padding: 20px;
+        border-radius: 5px;
+      }
+
+      h1 {
+        color: #333333;
+      }
+
+      .alert {
+        padding: 20px;
+        border-radius: 5px;
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .alert-danger {
+        background-color: #ffbbbb;
+        color: #d8000c;
+      }
+
+      .go-back {
+        text-align: center;
+      }
+
+      .go-back button {
+        padding: 10px 20px;
+        background-color: #333333;
+        color: whitesmoke;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .go-back button:hover {
+        background-color: #222222;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>User Alert</h1>
+      <div class="alert alert-danger" role="alert">{{ alert_message }}</div>
+      <div class="go-back">
+        <button onclick="goBack()">Go Back</button>
+      </div>
+    </div>
+
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+  </body>
+</html>

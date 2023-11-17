@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PII Masking Application</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+
+    <script>
+      function showAlert() {
+        window.location.href = "/alert";
+      }
+    </script>
+  </head>
+  <body>
+    <h1>PII Masking Application</h1>
+    <form action="/process_content" method="POST">
+      <label for="content">Enter your content..........</label><br />
+      <textarea id="content" name="content" rows="5" cols="50"></textarea
+      ><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+    {% if masked_sentence %}
+    <h2>Masked Output:</h2>
+    <p>{{ masked_sentence }}</p>
+    {% endif %} {% if alert_message %}
+    <div class="alert alert-warning" role="alert">{{ alert_message }}</div>
+    {% if mean_percentage > 3 %}
+    <button onclick="showAlert()">Alert</button>
+    {% endif %} {% endif %}
+  </body>
+</html>
